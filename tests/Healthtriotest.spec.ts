@@ -12,6 +12,7 @@ test('test', async ({ page }) => {
   await page1.locator('#post-246710 iframe').contentFrame().locator('td:nth-child(3)').first().click();
   await page1.locator('#post-246710 iframe').contentFrame().locator('tr:nth-child(5) > td:nth-child(3)').first().click();
   await page1.locator('#post-246710 iframe').contentFrame().getByRole('cell', { name: '430 W SUNSET BLVD STE 105 SAN ANTONIO, TX 78209', exact: true }).click();
+  // Used to click on the url and also username and password
    await page.goto('https://cfhpbeta.healthtrioconnect.com/app/index.page');
   await page.getByRole('textbox', { name: 'Enter username' }).click();
   await page.getByRole('textbox', { name: 'Enter username' }).fill('CFHPTestProviderRKaushik');

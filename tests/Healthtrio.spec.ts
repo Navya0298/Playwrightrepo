@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://communityfirsthealthplans.com/find-provider/');
+  // It is used to find the provider
   await page.getByRole('link', { name: 'Find A Provider' }).click();
   const page1Promise = page.waitForEvent('popup');
   await page.locator('.et_pb_with_border.et_pb_module.et_pb_cta_9 > .et_pb_button_wrapper > .et_pb_button').click();
@@ -21,8 +22,8 @@ test('test', async ({ page }) => {
 
 
     // Close tabs and browser session
-    // await page1.close();
-    // await page.close();
+    await page1.close();
+    await page.close();
 
 
 });

@@ -125,6 +125,7 @@ await page1.locator('#cphBody_cphContent_HRAWizard1_500544_P_3_q_139_ddl_139').s
 await page1.locator('#cphBody_cphButtonsBottom_btnContinue2').click();
 await page1.locator('#cphBody_cphButtonsBottom_btnContinue2').click();
 await page1.locator('#cphBody_cphButtonsBottom_btnContinue2').click();
+// It is used to view the view history button
  await page1.getByRole('link', { name: 'View History' }).click();
     await page1.locator('#ctl00_ctl00_cphBody_cphList_HRAHistoryListGrid_ctl00__0').getByRole('cell', { name: 'Completed Completed' }).click();
     await page1.getByRole('link', { name: 'View Report' }).click();
