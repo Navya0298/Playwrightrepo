@@ -1,0 +1,28 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="73.87858899999969">
+<testsuite name="Budgetletter2604.spec.ts" timestamp="2025-08-05T17:28:32.917Z" hostname="chromium" tests="4" failures="0" skipped="0" time="72.006" errors="0">
+<testcase name="CCA - Budgetletter2604 820035172" classname="Budgetletter2604.spec.ts" time="18.39">
+<system-out>
+<![CDATA[📊 All decimal values: []
+]]>
+</system-out>
+</testcase>
+<testcase name="CCA - Budgetletter2604 819145328" classname="Budgetletter2604.spec.ts" time="18.013">
+<system-out>
+<![CDATA[📊 All decimal values: []
+]]>
+</system-out>
+</testcase>
+<testcase name="CCA - Budgetletter2604 814063235" classname="Budgetletter2604.spec.ts" time="17.95">
+<system-out>
+<![CDATA[📊 All decimal values: []
+]]>
+</system-out>
+</testcase>
+<testcase name="CCA - Budgetletter2604 525382210" classname="Budgetletter2604.spec.ts" time="17.653">
+<system-out>
+<![CDATA[📊 All decimal values: []
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
