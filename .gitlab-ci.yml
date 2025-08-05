@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 stages:
   - smoke
@@ -119,3 +120,126 @@ cleanup_job:
    # - rm -rf $CI_BUILDS_DIR/$CI_PROJECT_PATH/*
    - echo "Removing Temporary files and environment configuration"
   when: always
+=======
+
+stages:
+  - smoke
+  - end_to_end
+  - regression
+  - clean
+
+playwright_tests_demo_smoke:
+  stage: smoke
+  tags:
+    - windows
+    - playwright
+    - tests
+  script:
+    - echo "Set Up credentials"
+    - echo "USERNAME=$env:Nm1612" > .env
+    - echo "PASSWORD=$env:Saibaba$1998" >> .env
+    # - powershell -Command "Get-Content .env"
+
+    - echo "Node version:"
+    - node -v
+
+    - echo "Installing project..."
+    - npm install
+
+    - echo "Running Playwright tests..."
+    - npx playwright test --grep "(?=.*@demo)(?=.*@sample)"
+
+    - echo "Check directories"
+    - dir
+
+    - echo "Check report files"
+    - dir playwright-report
+    
+    - echo "Removing old report"
+    - del "C:\PlaywrightTests\TestReport\*"
+
+    - echo "Publishing new report"
+    - xcopy "playwright-report\*" "C:\PlaywrightTests\TestReport\"
+
+  artifacts:
+    when: always
+    paths:
+      - playwright-report/
+      - results.xml
+    expire_in: 1 week
+    reports:
+      junit: results.xml
+
+playwright_tests_demo_end_to_end:
+  stage: end_to_end
+  tags:
+    - windows
+    - playwright
+    - tests
+  script:
+    - echo "Node version:"
+    - node -v
+    - echo "Installing project..."
+    - npm install
+    - echo "Running Playwright tests..."
+    - npx playwright test --grep "(?=.*@demo)(?=.*@findprovider)"
+
+    - echo "Check directories"
+    - dir
+
+    - echo "Check report files"
+    - dir playwright-report
+
+  artifacts:
+    when: always
+    paths:
+      - playwright-report/
+      - results.xml
+    expire_in: 1 week
+    reports:
+      junit: results.xml
+  
+  when: manual
+
+playwright_tests_demo_regression:
+  stage: regression
+  tags:
+    - windows
+    - playwright
+    - tests
+  script:
+    - echo "Node version:"
+    - node -v
+    - echo "Installing project..."
+    - npm install
+    - echo "Running Playwright tests..."
+    - npx playwright test --grep "(?=.*@demo)(?=.*@memberportal)"
+
+    - echo "Check directories"
+    - dir
+
+    - echo "Check report files"
+    - dir playwright-report
+
+  artifacts:
+    when: always
+    paths:
+      - playwright-report/
+      - results.xml
+    expire_in: 1 week
+    reports:
+      junit: results.xml
+  
+  when: manual
+
+cleanup_job:
+  stage: clean
+  tags:
+    - windows
+    - playwright
+    - tests
+  script:
+   # - rm -rf $CI_BUILDS_DIR/$CI_PROJECT_PATH/*
+   - echo "Removing Temporary files and environment configuration"
+  when: always
+>>>>>>> a67a02f0550e0280a363cd3858e542306a81b240
